@@ -1,0 +1,71 @@
+{
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "sourceType": "module"
+	},
+  "env": {
+    "jest": true,
+    "es6": true,
+    "node": true
+	},
+  "extends": ["airbnb-base", "plugin:import/errors", "prettier"
+	],
+  "plugins": ["import", "prettier"
+	],
+  "rules": {
+    "import/no-cycle": [
+      2,
+      {
+        "maxDepth": 1
+      }
+    ],
+    "complexity": [
+			2,
+			{ "max": 5
+			}
+		],
+    "import/order": 0,
+    "import/prefer-default-export": 0,
+    "camelcase": [
+			2,
+			{ "allow": ["^UNSAFE_"
+				]
+			}
+		],
+    "class-methods-use-this": 0,
+    "func-names": 0,
+    "lines-between-class-members": [
+			2, "always",
+			{ "exceptAfterSingleLine": true
+			}
+		],
+    "no-restricted-syntax": [
+			2,
+			{
+        "selector": "LabeledStatement",
+        "message":
+          "Labels are a form of GOTO; using them makes code confusing and hard to maintain and understand."
+			},
+			{
+        "selector": "WithStatement",
+        "message":
+          "`with` is disallowed in strict mode because it makes code impossible to predict and optimize."
+			}
+		],
+    "no-use-before-define": [
+			2, "nofunc"
+		],
+    "no-underscore-dangle": 0,
+    "strict": 0,
+    "prettier/prettier": 2
+	},
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "paths": ["node_modules", "./src"
+				]
+			}
+		}
+	}
+}
